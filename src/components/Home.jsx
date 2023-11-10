@@ -1,19 +1,38 @@
-import React from 'react'
-import './Home.css'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 
-const Home = () => {
+const Dashboard = () => {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(res => setData(res.data))
+      .catch(err => console.log(err))
+  }, [])
+
   return (
-   
-    <div className='home'>
-      <h1>Employee App</h1>
-      <br /><br />
-      <button className="button-50" role="button"><Link to={'/dash'} style={{color:'white', textDecoration:'none'}}>Welcome</Link> </button>
-    </div>
-  
-    
-    
+    <TableContainer sx={{ marginTop: '100px', maxHeight: '400px', maxWidth: '1200px', marginLeft: '80px' }} component={Paper} align='center'>
+      <Table aria-label='simple tample' stickyHeader className='table' >
+      <TableHead sx={{ backgroundColor: 'purple' }}>
+          <TableRow>
+            <TableCell>Id</TableCell>
+            <TableCell align='center'>Name</TableCell>
+            <TableCell align='center'>Email</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((val, i) => (
+            <TableRow key={i} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+              <TableCell>{val.id}</TableCell>
+              <TableCell align='center'>{val.name}</TableCell>
+              <TableCell align='center'>{val.email}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   )
 }
 
-export default Home
+export default Dashboard;
