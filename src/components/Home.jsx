@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 
-const Dashboard = () => {
+const Home = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -35,4 +35,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard;
+export default Home;
