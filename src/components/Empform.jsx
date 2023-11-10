@@ -21,7 +21,7 @@ const Empform = () => {
         <TextField style={{marginTop:'18px'}} label='Designation'  variant='standard' type='password' fullWidth required></TextField>
         <TextField style={{marginTop:'18px'}} label='location'  variant="standard" fullWidth required></TextField>
         <TextField style={{marginTop:'18px'}} label='salary'  variant='standard' type='password' fullWidth required></TextField>
-              <Button className='formbtn' type='submit' color='primary' variant='contained' style={buttonStyle} fullWidth><Link to={'/dash'}  style={{color:'white', textDecoration:'none'}}>Submit </Link></Button>
+              <Button className='formbtn' type='submit' color='primary' variant='contained' style={buttonStyle} fullWidth><Link to={'/'}  style={{color:'white', textDecoration:'none'}}>Submit </Link></Button>
      
              
       </Paper>
